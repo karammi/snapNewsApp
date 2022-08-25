@@ -1,4 +1,4 @@
-package com.snap.snapNewsApp.ui.theme
+package com.snap.snapNewsApp.core.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
-import com.snap.snapNewsApp.ui.theme.SnapNewsAppTheme
+import com.snap.snapNewsApp.core.ui.theme.SnapNewsAppTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,5 +25,4 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-
-//4306da9b007544c99aefb13e7ef73d5c
+// 4306da9b007544c99aefb13e7ef73d5c
