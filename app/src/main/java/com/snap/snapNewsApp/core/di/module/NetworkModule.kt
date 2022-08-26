@@ -18,7 +18,7 @@ import javax.inject.Singleton
 object NetworkModule {
 
     @Provides
-    fun provideBaseUrl(): String = "https://newsapi.org/docs/endpoints/"
+    fun provideBaseUrl(): String = "https://newsapi.org/v2/"
 
     @Provides
     fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor =
