@@ -1,6 +1,8 @@
 package com.snap.snapNewsApp.press.domain.repository
 
-interface PressRepository {
+import com.snap.snapNewsApp.press.domain.model.BaseResponse
+import com.snap.snapNewsApp.press.domain.model.Press
 
-    suspend fun fetchTopHeadlines()
+interface PressRepository {
+    suspend fun fetchTopHeadlines(): BaseResponse<Press>
 }

@@ -1,0 +1,13 @@
+package com.snap.snapNewsApp.press.domain.useCase
+
+import com.snap.snapNewsApp.press.domain.repository.PressRepository
+import dagger.hilt.android.scopes.ViewModelScoped
+import javax.inject.Inject
+
+@ViewModelScoped
+class FetchTopHeadlinesUseCase @Inject constructor(
+    private val pressRepository: PressRepository
+) {
+    operator fun invoke() {
+    }
+}
