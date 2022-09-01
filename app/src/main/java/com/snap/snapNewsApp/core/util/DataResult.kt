@@ -2,7 +2,7 @@ package com.snap.snapNewsApp.core.util
 
 sealed class DataResult<out R> {
     class Success<T>(val value: T) : DataResult<T>()
-    class Error(val errorBody: ApiErrorBody) : DataResult<Nothing>()
+    class Error(val errorBody: ApiErrorBody?) : DataResult<Nothing>()
 }
 
 inline fun <R, T> DataResult<T>.map(transform: (value: T) -> R): DataResult<R> {

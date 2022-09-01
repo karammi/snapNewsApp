@@ -11,12 +11,17 @@ import javax.inject.Inject
 class PressRemoteDataSourceImpl @Inject constructor(
     private var pressApi: PressApi
 ) : PressRemoteDataSource {
-    override suspend fun fetchPressHeadlines(): DataResult<List<PressModel>> {
+    override suspend fun fetchPressHeadlines(): DataResult<List<PressModel>?> {
         val response = pressApi.fetchTopHeadlines()
         return if (response.status == "ok") {
             DataResult.Success(response.data)
         } else {
-            DataResult.Error(ApiErrorBody(code = response.code, message = response.message))
+            DataResult.Error(
+                errorBody = ApiErrorBody(
+                    code = response.code,
+                    message = response.message
+                )
+            )
         }
     }
 }

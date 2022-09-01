@@ -7,7 +7,7 @@ import com.squareup.moshi.JsonClass
 data class BaseResponseModel<out T>(
     val status: String,
     @Json(name = "sources")
-    val data: T,
-    val code: String,
-    val message: String
+    val data: T? = null,
+    val code: String? = null,
+    val message: String? = null
 )

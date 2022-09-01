@@ -18,9 +18,9 @@ class PressRepositoryImpl @Inject constructor(
         return pressRemoteDataSource
             .fetchPressHeadlines()
             .map { response ->
-                response.map { pressModel ->
+                response?.map { pressModel ->
                     mapper.mapModelToEntity(pressModel)
-                }
+                } ?: emptyList()
             }
     }
 }

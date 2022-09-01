@@ -5,5 +5,5 @@ import com.snap.snapNewsApp.press.data.remote.model.PressModel
 
 interface PressRemoteDataSource {
 
-    suspend fun fetchPressHeadlines(): DataResult<List<PressModel>>
+    suspend fun fetchPressHeadlines(): DataResult<List<PressModel>?>
 }
