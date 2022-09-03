@@ -18,12 +18,12 @@ import javax.inject.Inject
 
 sealed class UiState<out T, out R>(open val data: T? = null, open val error: R? = null) {
     object Loading : UiState<Nothing, Nothing>()
-    class Success<T>(override val data: T?) : UiState<T, Nothing>()
-    class Error<R>(override val error: R?) : UiState<Nothing, R>()
+    data class Success<T>(override val data: T?) : UiState<T, Nothing>()
+    data class Error<R>(override val error: R?) : UiState<Nothing, R>()
 }
 
 data class PressUiState(
-    private val pressList: UiState<List<Press>, ApiErrorBody> = UiState.Loading
+    val pressList: UiState<List<Press>, ApiErrorBody> = UiState.Loading
 )
 
 @HiltViewModel
@@ -39,8 +39,7 @@ class PressViewModel @Inject constructor(
 
     private fun fetchPressHeadlines() {
         viewModelScope.launch {
-            val response = fetchHeadlinesUseCase.invoke()
-            when (response) {
+            when (val response = fetchHeadlinesUseCase.invoke()) {
                 is DataResult.Error -> {
                     pressUiState.emit(
                         value = pressUiState.value.copy(
